@@ -3,6 +3,8 @@
 using NetworkMonitor.Implementation.HostInformationService;
 using System.Net.NetworkInformation;
 
+var result =  NetworkInterface.GetAllNetworkInterfaces();
+
 var host = new WindowsHostInformationService(NetworkInterface.GetAllNetworkInterfaces()[2].GetIPProperties());
 
 var hostInformation = host.GetHostInformation();
