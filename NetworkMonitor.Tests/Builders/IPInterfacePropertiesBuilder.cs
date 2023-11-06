@@ -1,5 +1,4 @@
-﻿using System.Net;
-using System.Net.NetworkInformation;
+﻿using System.Net.NetworkInformation;
 using Moq;
 using NetworkMonitor.Tests.Entities;
 
@@ -8,7 +7,7 @@ namespace NetworkMonitor.Tests.Builders;
 public class IPInterfacePropertiesBuilder
 {
     private Mock<IPInterfaceProperties> _mockIpInterfaceProperties = new();
-
+    private const string _ip = "192.168.0.1";
 
     /// <summary> Создание нового экземпляра IPInterfacePropertiesBuilder. </summary>
     /// <returns> Новый экземпляр IPInterfacePropertiesBuilder </returns>
@@ -43,7 +42,6 @@ public class IPInterfacePropertiesBuilder
             .Returns(addressCollectionTest);
         return this;
     }
-
 
     /// <summary> Получение экземпляра класса IPInterfaceProperties. </summary>
     /// <returns> Экземпляр класса IPInterfaceProperties. </returns>

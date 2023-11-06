@@ -8,6 +8,8 @@ namespace NetworkMonitor.Common.Interfaces
     /// </summary>
     public  interface INetworkInterfacesManager
     {
-        public NetworkInterface GetNetworkInterface(NetworkInterfaceSetting);
+        public NetworkInterface GetNetworkInterface(
+            NetworkInterface[] networkInterfaces,
+            NetworkInterfaceSetting networkInterfaceSetting);
     }
 }

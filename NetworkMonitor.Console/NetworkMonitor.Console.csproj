@@ -11,4 +11,8 @@
     <ProjectReference Include="..\NetworkMonitor.Implementation\NetworkMonitor.Implementation.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+
 </Project>

@@ -2,11 +2,24 @@
 
 using NetworkMonitor.Implementation.HostInformationService;
 using System.Net.NetworkInformation;
+using NetworkMonitor.Common.Dto;
+using NetworkMonitor.Common.ExtensionMethods;
+using NetworkMonitor.Common.Interfaces;
+using NetworkMonitor.Implementation;
 
-var result =  NetworkInterface.GetAllNetworkInterfaces();
+var networkInterfaceSetting = new NetworkInterfaceSetting
+{
+    Name = "Ethernet"
+};
 
-var host = new WindowsHostInformationService(NetworkInterface.GetAllNetworkInterfaces()[2].GetIPProperties());
+var result = NetworkInterface.GetAllNetworkInterfaces();
 
+//var networkInterface = NetworkInterface.GetAllNetworkInterfaces().GetNetworkInterfaceByName(networkInterfaceSetting);
+
+INetworkInterfacesManager networkInterfacesManager = new WindowsNetworkInterfacesManager();
+var networkInterface = networkInterfacesManager.GetNetworkInterface(NetworkInterface.GetAllNetworkInterfaces() ,networkInterfaceSetting);
+
+var host = new WindowsHostInformationService(networkInterface.GetIPProperties());
 var hostInformation = host.GetHostInformation();
 
 Console.WriteLine(hostInformation.Gateway);
