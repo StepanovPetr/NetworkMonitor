@@ -1,4 +1,5 @@
 ﻿using NetworkMonitor.Common.Dto;
+using NetworkMonitor.Common.Exceptions;
 using NetworkMonitor.Implementation;
 using NetworkMonitor.Tests.Builders;
 using NUnit.Framework;
@@ -23,7 +24,6 @@ namespace NetworkMonitor.Tests
         {
             // Arrange.
             var windowsNetworkInterfacesManager = new WindowsNetworkInterfacesManager();
-
             var networkInterfaceSetting = new NetworkInterfaceSetting
             {
                 Name = name
@@ -36,6 +36,23 @@ namespace NetworkMonitor.Tests
 
             // Assert.
             Assert.NotNull(result);
+        }
+
+        [Test(Description = "Сетевой интерфейс не найден.")]
+        public void WindowsNetworkInterfacesManagerTests_GetNetworkInterface_NotFound()
+        {
+            // Arrange.
+            var windowsNetworkInterfacesManager = new WindowsNetworkInterfacesManager();
+            var networkInterfaceSetting = new NetworkInterfaceSetting
+            {
+                Name = "NotFoundName"
+            };
+           
+            // Act.
+            var ex = Assert.Throws<NetworkInterfaceException>(() => windowsNetworkInterfacesManager.GetNetworkInterface(NetworkInterfaceBuilder.BuildArray(_stringList), networkInterfaceSetting));
+
+            // Assert.
+            Assert.AreEqual("Сетевой интерфейс не найден.", ex.Message);
         }
     }
 }

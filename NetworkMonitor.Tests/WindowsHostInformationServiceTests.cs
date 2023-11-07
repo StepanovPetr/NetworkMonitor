@@ -1,4 +1,5 @@
-﻿using NetworkMonitor.Implementation.HostInformationService;
+﻿using NetworkMonitor.Implementation;
+using NetworkMonitor.Implementation.HostInformationService;
 using NetworkMonitor.Tests.Builders;
 using NUnit.Framework;
 
@@ -16,7 +17,8 @@ namespace NetworkMonitor.Tests
                 .SetDhcp("192.168.1.1")
                 .Build();
 
-            var windowsHostInformationService = new WindowsHostInformationService(iPInterfaceProperties);
+            var windowsCmdManager = new WindowsCmdManager();
+            var windowsHostInformationService = new WindowsHostInformationService(iPInterfaceProperties, windowsCmdManager);
 
             // Act.
             var result = windowsHostInformationService.GetDhcp();
@@ -34,7 +36,8 @@ namespace NetworkMonitor.Tests
                 .SetDns("192.168.1.1")
                 .Build();
 
-            var windowsHostInformationService = new WindowsHostInformationService(iPInterfaceProperties);
+            var windowsCmdManager = new WindowsCmdManager();
+            var windowsHostInformationService = new WindowsHostInformationService(iPInterfaceProperties, windowsCmdManager);
 
             // Act.
             var result = windowsHostInformationService.GetDnsList();
@@ -52,7 +55,8 @@ namespace NetworkMonitor.Tests
                 .SetGateway("192.168.1.1")
                 .Build();
 
-            var windowsHostInformationService = new WindowsHostInformationService(iPInterfaceProperties);
+            var windowsCmdManager = new WindowsCmdManager();
+            var windowsHostInformationService = new WindowsHostInformationService(iPInterfaceProperties, windowsCmdManager);
 
             // Act.
             var result = windowsHostInformationService.GetGateway();

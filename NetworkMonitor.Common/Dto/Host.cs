@@ -4,9 +4,9 @@
     public class Host
     {
         /// <summary> Ip адрес. </summary>
-        public string IpAddress { get; }
+        public string IpAddress { get; set; }
 
         /// <summary> MAC адрес. </summary>
-        public string MacAddress { get; }
+        public string MacAddress { get; set; }
     }
 }

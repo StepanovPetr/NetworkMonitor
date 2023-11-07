@@ -15,8 +15,10 @@ public class GatewayIPAddressInformationCollectionTest : GatewayIPAddressInforma
 
     public GatewayIPAddressInformationCollectionTest(string address)
     {
-        _addresses = new List<GatewayIPAddressInformationTest>();
-        _addresses.Add(new GatewayIPAddressInformationTest(address));
+        _addresses = new List<GatewayIPAddressInformationTest>
+        {
+            new GatewayIPAddressInformationTest(address)
+        };
     }
 
     System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()

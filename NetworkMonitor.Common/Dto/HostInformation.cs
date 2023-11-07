@@ -21,6 +21,9 @@ namespace NetworkMonitor.Common.Dto
         public IList<string> DnsList { get; set; }
 
         /// <summary> ARP таблица. </summary>
-        public IList<Host> ArpTable { get; set; }
+        public IEnumerable<Host> ArpTable { get; set; }
+
+        /// <summary> Таблица маршрутизации. </summary>
+        public IEnumerable<string> TracertTable { get; set; }
     }
 }

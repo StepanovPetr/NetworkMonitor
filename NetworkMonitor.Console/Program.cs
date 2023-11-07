@@ -1,9 +1,7 @@
 ﻿//See https://aka.ms/new-console-template for more information
-
 using NetworkMonitor.Implementation.HostInformationService;
 using System.Net.NetworkInformation;
 using NetworkMonitor.Common.Dto;
-using NetworkMonitor.Common.ExtensionMethods;
 using NetworkMonitor.Common.Interfaces;
 using NetworkMonitor.Implementation;
 
@@ -19,7 +17,8 @@ var result = NetworkInterface.GetAllNetworkInterfaces();
 INetworkInterfacesManager networkInterfacesManager = new WindowsNetworkInterfacesManager();
 var networkInterface = networkInterfacesManager.GetNetworkInterface(NetworkInterface.GetAllNetworkInterfaces() ,networkInterfaceSetting);
 
-var host = new WindowsHostInformationService(networkInterface.GetIPProperties());
+var windowsCmdManager = new WindowsCmdManager();
+var host = new WindowsHostInformationService(networkInterface.GetIPProperties(), windowsCmdManager);
 var hostInformation = host.GetHostInformation();
 
 Console.WriteLine(hostInformation.Gateway);
@@ -31,5 +30,16 @@ foreach (var address in hostInformation.DnsList)
 {
     Console.WriteLine(address);
 }
+
+foreach (var address in hostInformation.TracertTable)
+{
+    Console.WriteLine(address);
+}
+
+foreach (var address in hostInformation.ArpTable)
+{
+    Console.WriteLine( $"{address.IpAddress} - {address.MacAddress}");
+}
+
 
 Console.ReadLine();

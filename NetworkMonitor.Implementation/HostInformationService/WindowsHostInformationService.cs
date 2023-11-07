@@ -9,10 +9,12 @@ namespace NetworkMonitor.Implementation.HostInformationService;
 public class WindowsHostInformationService : IHostInformationService
 {
     private readonly IPInterfaceProperties _ipInterfaceProperties;
+    private readonly WindowsCmdManager _cmdManager;
 
-    public WindowsHostInformationService(IPInterfaceProperties ipInterfaceProperties)
+    public WindowsHostInformationService(IPInterfaceProperties ipInterfaceProperties, WindowsCmdManager cmdManager)
     {
         _ipInterfaceProperties = ipInterfaceProperties;
+        _cmdManager = cmdManager;
     }
 
 
@@ -28,13 +30,9 @@ public class WindowsHostInformationService : IHostInformationService
             Gateway = GetGateway(),
             HostName = GetHostName(),
             IPv4Address = GetPv4Address(),
+            TracertTable = GetTracertTable(),
+            ArpTable = GetArpTable()
         };
-    }
-
-    /// <summary> Получение ARP таблицы. </summary>
-    public IList<Host> GetArpTable()
-    {
-        throw new NotImplementedException();
     }
 
     /// <summary> Получение IP адреса DHCP Сервера. </summary>
@@ -64,9 +62,19 @@ public class WindowsHostInformationService : IHostInformationService
     /// <summary> IP адрес машины. </summary>
     public string? GetPv4Address()
     {
-
         //return _ipInterfaceProperties.UnicastAddresses.Where(a => a.IPv4Mask == );
-
         return Dns.GetHostEntry(Dns.GetHostName()).AddressList.LastOrDefault()?.ToString();
+    }
+
+    public IEnumerable<string> GetTracertTable()
+    {
+        return _cmdManager.GetTracertTable(GetGateway());
+    }
+
+    /// <summary> Получение ARP таблицы. </summary>
+    public IEnumerable<Host> GetArpTable()
+    { 
+        return _cmdManager.GetArpTable();
+        //return new List<Host>();
     }
 }
