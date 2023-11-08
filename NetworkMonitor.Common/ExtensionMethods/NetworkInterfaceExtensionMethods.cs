@@ -7,12 +7,13 @@ using NetworkMonitor.Common.Settings;
 
 namespace NetworkMonitor.Common.ExtensionMethods
 {
+    /// <summary> Методы расширения для класса NetworkInterface. </summary>
     public static class NetworkInterfaceExtensionMethods
     {
-        /// <summary> Получение сетевого интерфейса по имени </summary>
+        /// <summary> Получение сетевого интерфейса по имени. </summary>
         /// <param name="networkInterfaces"></param>
         /// <param name="networkInterfaceSetting"></param>
-        /// <returns></returns>
+        /// <returns> Сетевой интерфейс. </returns>
         public static NetworkInterface GetNetworkInterfaceByName(
             this NetworkInterface[] networkInterfaces, 
             NetworkInterfaceSetting networkInterfaceSetting)

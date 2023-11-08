@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using NetworkMonitor.Common.Dto;
 using NetworkMonitor.Common.Interfaces;
 
@@ -59,8 +60,10 @@ public class WindowsHostInformationService : IHostInformationService
     /// <summary> IP адрес машины. </summary>
     public string GetPv4Address()
     {
-        //return _ipInterfaceProperties.UnicastAddresses.Where(a => a.IPv4Mask == );
-        return Dns.GetHostEntry(Dns.GetHostName()).AddressList.LastOrDefault()?.ToString();
+        return _ipInterfaceProperties
+            .UnicastAddresses
+            .FirstOrDefault(a => a.IPv4Mask.Address != 0)
+            .Address.MapToIPv4().ToString();
     }
 
     public IEnumerable<string> GetTracertTable()

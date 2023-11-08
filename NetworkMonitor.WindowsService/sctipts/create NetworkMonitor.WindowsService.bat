@@ -1,0 +1,2 @@
+﻿sc create NetworkMonitor.WindowsService binPath= "E:\Sources\C#\1)MyGit\security\NetworkMonitor\NetworkMonitor.WindowsService\bin\Release\net7.0\publish\NetworkMonitor.WindowsService.exe"
+sc description NetworkMonitor.WindowsService "NetworkMonitor.WindowsService"
