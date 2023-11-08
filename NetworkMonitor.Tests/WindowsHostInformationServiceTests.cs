@@ -1,5 +1,5 @@
 ﻿using NetworkMonitor.Implementation;
-using NetworkMonitor.Implementation.HostInformationService;
+using NetworkMonitor.Implementation.Windows;
 using NetworkMonitor.Tests.Builders;
 using NUnit.Framework;
 

@@ -1,6 +1,7 @@
-﻿using NetworkMonitor.Common.Dto;
+﻿using NetworkMonitor.Common.Constants;
 using NetworkMonitor.Common.Exceptions;
-using NetworkMonitor.Implementation;
+using NetworkMonitor.Common.ExtensionMethods;
+using NetworkMonitor.Common.Settings;
 using NetworkMonitor.Tests.Builders;
 using NUnit.Framework;
 
@@ -23,16 +24,15 @@ namespace NetworkMonitor.Tests
         public void WindowsNetworkInterfacesManagerTests_GetNetworkInterface_Should(string name)
         {
             // Arrange.
-            var windowsNetworkInterfacesManager = new WindowsNetworkInterfacesManager();
             var networkInterfaceSetting = new NetworkInterfaceSetting
             {
                 Name = name
             };
 
             // Act.
-            var result = windowsNetworkInterfacesManager.GetNetworkInterface(NetworkInterfaceBuilder
-                    .BuildArray(_stringList),
-                networkInterfaceSetting);
+            var result = NetworkInterfaceBuilder
+                .BuildArray(_stringList)
+                .GetNetworkInterfaceByName(networkInterfaceSetting);
 
             // Assert.
             Assert.NotNull(result);
@@ -42,17 +42,18 @@ namespace NetworkMonitor.Tests
         public void WindowsNetworkInterfacesManagerTests_GetNetworkInterface_NotFound()
         {
             // Arrange.
-            var windowsNetworkInterfacesManager = new WindowsNetworkInterfacesManager();
             var networkInterfaceSetting = new NetworkInterfaceSetting
             {
                 Name = "NotFoundName"
             };
-           
+
             // Act.
-            var ex = Assert.Throws<NetworkInterfaceException>(() => windowsNetworkInterfacesManager.GetNetworkInterface(NetworkInterfaceBuilder.BuildArray(_stringList), networkInterfaceSetting));
+            var ex = Assert.Throws<NetworkInterfaceException>(() => NetworkInterfaceBuilder
+                .BuildArray(_stringList)
+                .GetNetworkInterfaceByName(networkInterfaceSetting));
 
             // Assert.
-            Assert.AreEqual("Сетевой интерфейс не найден.", ex.Message);
+            Assert.AreEqual(ErrorMessages.NetworkInterfaceExceptionNotFound, ex.Message);
         }
     }
 }

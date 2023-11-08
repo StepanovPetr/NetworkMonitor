@@ -5,11 +5,11 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetworkMonitor.Common", "NetworkMonitor.Common\NetworkMonitor.Common.csproj", "{5DE15FC2-C101-4412-9A3C-ACE1BBDA930D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetworkMonitor.Console", "NetworkMonitor.Console\NetworkMonitor.Console.csproj", "{768552EC-3464-4025-831E-39116C95413F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetworkMonitor.Implementation", "NetworkMonitor.Implementation\NetworkMonitor.Implementation.csproj", "{44D19AE9-0EA8-4281-8BCF-1FC2AE8F1A5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkMonitor.Tests", "NetworkMonitor.Tests\NetworkMonitor.Tests.csproj", "{83223B1A-6CFB-4B1D-91FB-54A42B26354B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetworkMonitor.Tests", "NetworkMonitor.Tests\NetworkMonitor.Tests.csproj", "{83223B1A-6CFB-4B1D-91FB-54A42B26354B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkMonitor.WindowsService", "NetworkMonitor.WindowsService\NetworkMonitor.WindowsService.csproj", "{6F4A0007-446E-4F97-80AB-921BEC3D6C74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		{5DE15FC2-C101-4412-9A3C-ACE1BBDA930D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DE15FC2-C101-4412-9A3C-ACE1BBDA930D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DE15FC2-C101-4412-9A3C-ACE1BBDA930D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{768552EC-3464-4025-831E-39116C95413F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{768552EC-3464-4025-831E-39116C95413F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{768552EC-3464-4025-831E-39116C95413F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{768552EC-3464-4025-831E-39116C95413F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{44D19AE9-0EA8-4281-8BCF-1FC2AE8F1A5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{44D19AE9-0EA8-4281-8BCF-1FC2AE8F1A5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44D19AE9-0EA8-4281-8BCF-1FC2AE8F1A5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{83223B1A-6CFB-4B1D-91FB-54A42B26354B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83223B1A-6CFB-4B1D-91FB-54A42B26354B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83223B1A-6CFB-4B1D-91FB-54A42B26354B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F4A0007-446E-4F97-80AB-921BEC3D6C74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F4A0007-446E-4F97-80AB-921BEC3D6C74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F4A0007-446E-4F97-80AB-921BEC3D6C74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F4A0007-446E-4F97-80AB-921BEC3D6C74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

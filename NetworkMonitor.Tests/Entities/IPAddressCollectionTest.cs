@@ -15,7 +15,7 @@ public class IPAddressCollectionTest : IPAddressCollection, IEnumerable
 
     public IPAddressCollectionTest(string address)
     {
-        _addresses = new List<IPAddress>();
+        _addresses ??= new List<IPAddress>();
         _addresses.Add(IPAddress.Parse(address));
     }
 

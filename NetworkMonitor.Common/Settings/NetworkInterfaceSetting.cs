@@ -1,4 +1,4 @@
-﻿namespace NetworkMonitor.Common.Dto
+﻿namespace NetworkMonitor.Common.Settings
 {
     public class NetworkInterfaceSetting
     {

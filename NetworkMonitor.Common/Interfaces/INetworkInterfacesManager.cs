@@ -1,4 +1,4 @@
-﻿using NetworkMonitor.Common.Dto;
+﻿using NetworkMonitor.Common.Settings;
 using System.Net.NetworkInformation;
 
 namespace NetworkMonitor.Common.Interfaces

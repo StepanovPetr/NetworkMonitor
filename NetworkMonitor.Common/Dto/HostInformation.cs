@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace NetworkMonitor.Common.Dto
 {
     /// <summary> Информация об узле сети. </summary>
+    [Serializable]
     public class HostInformation
     {
         /// <summary> IP адрес DHCP Сервера. </summary>

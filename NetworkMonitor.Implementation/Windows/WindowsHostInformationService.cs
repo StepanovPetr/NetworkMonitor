@@ -3,22 +3,19 @@ using System.Net.NetworkInformation;
 using NetworkMonitor.Common.Dto;
 using NetworkMonitor.Common.Interfaces;
 
-namespace NetworkMonitor.Implementation.HostInformationService;
+namespace NetworkMonitor.Implementation.Windows;
 
 /// <summary> Получение информации об узле сети Windows. </summary>
 public class WindowsHostInformationService : IHostInformationService
 {
     private readonly IPInterfaceProperties _ipInterfaceProperties;
-    private readonly WindowsCmdManager _cmdManager;
+    private readonly IWindowsCmdManager _cmdManager;
 
-    public WindowsHostInformationService(IPInterfaceProperties ipInterfaceProperties, WindowsCmdManager cmdManager)
+    public WindowsHostInformationService(IPInterfaceProperties ipInterfaceProperties, IWindowsCmdManager cmdManager)
     {
         _ipInterfaceProperties = ipInterfaceProperties;
         _cmdManager = cmdManager;
     }
-
-
-    /// NetworkInterface.GetAllNetworkInterfaces()[2].GetIPProperties();
 
     /// <inheritdoc />
     public HostInformation GetHostInformation()
@@ -36,7 +33,7 @@ public class WindowsHostInformationService : IHostInformationService
     }
 
     /// <summary> Получение IP адреса DHCP Сервера. </summary>
-    public string? GetDhcp()
+    public string GetDhcp()
     {
         return _ipInterfaceProperties.DhcpServerAddresses.FirstOrDefault()?.ToString();
     }
@@ -48,7 +45,7 @@ public class WindowsHostInformationService : IHostInformationService
     }
 
     /// <summary> Получение IP адреса шлюза по-умолчанию. </summary>
-    public string? GetGateway()
+    public string GetGateway()
     {
         return _ipInterfaceProperties.GatewayAddresses.FirstOrDefault()?.Address.MapToIPv4().ToString();
     }
@@ -60,7 +57,7 @@ public class WindowsHostInformationService : IHostInformationService
     }
 
     /// <summary> IP адрес машины. </summary>
-    public string? GetPv4Address()
+    public string GetPv4Address()
     {
         //return _ipInterfaceProperties.UnicastAddresses.Where(a => a.IPv4Mask == );
         return Dns.GetHostEntry(Dns.GetHostName()).AddressList.LastOrDefault()?.ToString();

@@ -1,10 +1,11 @@
 ﻿using System.Diagnostics;
 using System.Net;
 using NetworkMonitor.Common.Dto;
+using NetworkMonitor.Common.Interfaces;
 
-namespace NetworkMonitor.Implementation;
+namespace NetworkMonitor.Implementation.Windows;
 
-public class WindowsCmdManager
+public class WindowsCmdManager : IWindowsCmdManager
 {
     private List<string> _tracertTable;
     private List<Host> _tracertArp;
@@ -64,7 +65,7 @@ public class WindowsCmdManager
                 .Replace("[", "")
                 .Replace("]", "")
                 .Split(" ")
-                .LastOrDefault( i => i != "");
+                .LastOrDefault(i => i != "");
 
             if (!string.IsNullOrEmpty(tracertString) && IPAddress.TryParse(tracertString, out var address))
             {
@@ -84,7 +85,9 @@ public class WindowsCmdManager
                 .Where(i => !string.IsNullOrEmpty(i))
                 .ToList();
 
-            if (arpString.Any() && arpString.Count() == 3 && IPAddress.TryParse(arpString.FirstOrDefault(), out var address))
+            if (arpString.Any() && arpString.Count() == 3 
+                                && IPAddress.TryParse(arpString.FirstOrDefault(), out var address)
+                                && arpString.LastOrDefault() == "dynamic")
             {
                 _tracertArp.Add(new Host()
                 {
