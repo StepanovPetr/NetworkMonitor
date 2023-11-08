@@ -1,5 +1,4 @@
-﻿using NetworkMonitor.Implementation;
-using NetworkMonitor.Implementation.Windows;
+﻿using NetworkMonitor.Implementation.Windows;
 using NetworkMonitor.Tests.Builders;
 using NUnit.Framework;
 
@@ -63,6 +62,26 @@ namespace NetworkMonitor.Tests
 
             // Assert.
             Assert.AreEqual("192.168.1.1", result);
+        }
+
+        [Test(Description = "Тест поучения HostName.")]
+        public void WindowsHostInformationService_Get_Should()
+        {
+            // Arrange.
+            var iPInterfaceProperties = IPInterfacePropertiesBuilder
+                .CreateBuilder()
+                .SetDhcp("192.168.1.1")
+                .Build();
+            var hostName = Environment.MachineName;
+
+            var windowsCmdManager = new WindowsCmdManager();
+            var windowsHostInformationService = new WindowsHostInformationService(iPInterfaceProperties, windowsCmdManager);
+
+            // Act.
+            var result = windowsHostInformationService.GetHostName();
+
+            // Assert.
+            Assert.AreEqual(hostName, result);
         }
     }
 }

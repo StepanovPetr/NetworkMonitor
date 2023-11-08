@@ -24,38 +24,42 @@ namespace NetworkMonitor.WindowsService
         {
             try
             {
-                _logger.LogInformation($"Получение настроек сети.");
-                var hostInformation = _hostInformationService.GetHostInformation();
-                _logger.LogInformation($"Настройки сети получены.");
-
-                _logger.LogInformation($"Gateway - {hostInformation.Gateway}");
-                _logger.LogInformation($"HostName - {hostInformation.HostName}");
-                _logger.LogInformation($"IPv4Address - {hostInformation.IPv4Address}");
-                _logger.LogInformation($"DHCP - {hostInformation.Dhcp}");
-
-                _logger.LogInformation("DNS сервера:");
-                foreach (var address in hostInformation.DnsList)
-                {
-                    _logger.LogInformation(address);
-                }
-
-                _logger.LogInformation("Таблица трассировки:");
-                foreach (var address in hostInformation.TracertTable)
-                {
-                    _logger.LogInformation(address);
-                }
-
-                _logger.LogInformation("Таблица ARP:");
-                foreach (var address in hostInformation.ArpTable)
-                {
-                    _logger.LogInformation($"{address.IpAddress} - {address.MacAddress}");
-                }
-
                 while (!stoppingToken.IsCancellationRequested)
                 {
+                    _logger.LogInformation($"Получение настроек сети.");
+                    var hostInformation = _hostInformationService.GetHostInformation();
+                    _logger.LogInformation($"Настройки сети получены.");
+
+                    _logger.LogInformation($"Gateway - {hostInformation.Gateway}");
+                    _logger.LogInformation($"HostName - {hostInformation.HostName}");
+                    _logger.LogInformation($"IPv4Address - {hostInformation.IPv4Address}");
+                    _logger.LogInformation($"DHCP - {hostInformation.Dhcp}");
+
+                    _logger.LogInformation("DNS сервера:");
+                    foreach (var address in hostInformation.DnsList)
+                    {
+                        _logger.LogInformation(address);
+                    }
+
+                    _logger.LogInformation("Таблица трассировки:");
+                    foreach (var address in hostInformation.TracertTable)
+                    {
+                        _logger.LogInformation(address);
+                    }
+
+                    _logger.LogInformation("Таблица ARP:");
+                    foreach (var address in hostInformation.ArpTable)
+                    {
+                        _logger.LogInformation($"{address.IpAddress} - {address.MacAddress}");
+                    }
+
                     _httpClient.SendHostInformation(hostInformation);
-                    await Task.Delay(_clientSetting.Delay);
                     _logger.LogInformation(InfoMessages.HttpClientMessageSent);
+
+                    await Task.Delay(_clientSetting.Delay > 5000
+                        ? _clientSetting.Delay
+                        : DefaultValues.SendHostInformationDelay,
+                        stoppingToken);
                 }
             }
             catch (Exception e)

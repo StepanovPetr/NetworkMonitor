@@ -14,7 +14,7 @@ public class WindowsHttpClientMock : IHttpClient
         {
             Directory.CreateDirectory("mock");
         }
-        var fileName = $"mock\\{DateTime.Now:MM_dd_yyyy-HH_mm_ss}.json";
+        var fileName = $"mock\\{DateTime.Now:yyyy_MM_dd-HH_mm_ss}.json";
 
         using (var stream = File.CreateText(fileName))
         {

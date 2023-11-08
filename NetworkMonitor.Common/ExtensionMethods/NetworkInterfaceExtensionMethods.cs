@@ -7,7 +7,7 @@ using NetworkMonitor.Common.Settings;
 
 namespace NetworkMonitor.Common.ExtensionMethods
 {
-    /// <summary> Методы расширения для класса NetworkInterface. </summary>
+    /// <summary> Методы расширения для класса NetworkInterface. </summary>f
     public static class NetworkInterfaceExtensionMethods
     {
         /// <summary> Получение сетевого интерфейса по имени. </summary>

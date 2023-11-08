@@ -18,7 +18,6 @@ public class WindowsHostInformationService : IHostInformationService
         _cmdManager = cmdManager;
     }
 
-    /// <inheritdoc />
     public HostInformation GetHostInformation()
     {
         return new HostInformation
