@@ -20,7 +20,7 @@ namespace NetworkMonitor.Common.Dto
         public string IPv4Address { get; set; }
 
         /// <summary> IP адресы DNS серверов. </summary>
-        public IList<string> DnsList { get; set; }
+        public IEnumerable<string> DnsList { get; set; }
 
         /// <summary> ARP таблица. </summary>
         public IEnumerable<Host> ArpTable { get; set; }

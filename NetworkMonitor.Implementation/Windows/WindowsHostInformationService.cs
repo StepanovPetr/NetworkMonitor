@@ -1,6 +1,4 @@
-﻿using System.Net;
-using System.Net.NetworkInformation;
-using System.Net.Sockets;
+﻿using System.Net.NetworkInformation;
 using NetworkMonitor.Common.Dto;
 using NetworkMonitor.Common.Interfaces;
 
@@ -32,31 +30,21 @@ public class WindowsHostInformationService : IHostInformationService
         };
     }
 
-    /// <summary> Получение IP адреса DHCP Сервера. </summary>
     public string GetDhcp()
     {
         return _ipInterfaceProperties.DhcpServerAddresses.FirstOrDefault()?.ToString();
     }
 
-    /// <summary> Получение списка IP адресов DNS. </summary>
-    public IList<string> GetDnsList()
-    {
-        return _ipInterfaceProperties.DnsAddresses.Select(i => i.MapToIPv4().ToString()).ToList();
-    }
-
-    /// <summary> Получение IP адреса шлюза по-умолчанию. </summary>
     public string GetGateway()
     {
         return _ipInterfaceProperties.GatewayAddresses.FirstOrDefault()?.Address.MapToIPv4().ToString();
     }
 
-    /// <summary> Получение имени машины. </summary>
     public string GetHostName()
     {
         return Environment.MachineName;
     }
 
-    /// <summary> IP адрес машины. </summary>
     public string GetPv4Address()
     {
         return _ipInterfaceProperties
@@ -65,15 +53,18 @@ public class WindowsHostInformationService : IHostInformationService
             .Address.MapToIPv4().ToString();
     }
 
+    public IEnumerable<string> GetDnsList()
+    {
+        return _ipInterfaceProperties.DnsAddresses.Select(i => i.MapToIPv4().ToString()).ToList();
+    }
+
     public IEnumerable<string> GetTracertTable()
     {
         return _cmdManager.GetTracertTable(GetGateway());
     }
 
-    /// <summary> Получение ARP таблицы. </summary>
     public IEnumerable<Host> GetArpTable()
     { 
         return _cmdManager.GetArpTable();
-        //return new List<Host>();
     }
 }

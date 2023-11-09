@@ -1,18 +1,20 @@
 using NetworkMonitor.Common.Constants;
 using NetworkMonitor.Common.Interfaces;
 using NetworkMonitor.Common.Settings;
-using System.Net.NetworkInformation;
 
 namespace NetworkMonitor.WindowsService
 {
-    public class Worker : BackgroundService
+    public class WindowsWorker : BackgroundService
     {
-        private readonly ILogger<Worker> _logger;
+        private readonly ILogger<WindowsWorker> _logger;
         private readonly IHostInformationService _hostInformationService;
         private readonly IHttpClient _httpClient;
         private readonly HttpClientSetting _clientSetting;
 
-        public Worker(ILogger<Worker> logger, IWindowsCmdManager cmdManager, IPInterfaceProperties ipInterfaceProperties, IHostInformationService hostInformationService, IHttpClient httpClient, HttpClientSetting clientSetting)
+        public WindowsWorker(ILogger<WindowsWorker> logger,
+            IHostInformationService hostInformationService, 
+            IHttpClient httpClient, 
+            HttpClientSetting clientSetting)
         {
             _logger = logger;
             _hostInformationService = hostInformationService;
@@ -26,9 +28,9 @@ namespace NetworkMonitor.WindowsService
             {
                 while (!stoppingToken.IsCancellationRequested)
                 {
-                    _logger.LogInformation($"Получение настроек сети.");
+                    _logger.LogInformation("Получение настроек сети.");
                     var hostInformation = _hostInformationService.GetHostInformation();
-                    _logger.LogInformation($"Настройки сети получены.");
+                    _logger.LogInformation("Настройки сети получены.");
 
                     _logger.LogInformation($"Gateway - {hostInformation.Gateway}");
                     _logger.LogInformation($"HostName - {hostInformation.HostName}");
