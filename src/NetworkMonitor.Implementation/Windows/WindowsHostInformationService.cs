@@ -8,12 +8,12 @@ namespace NetworkMonitor.Implementation.Windows;
 public class WindowsHostInformationService : IHostInformationService
 {
     private readonly IPInterfaceProperties _ipInterfaceProperties;
-    private readonly IWindowsCmdManager _cmdManager;
+    private readonly IWindowsManager _manager;
 
-    public WindowsHostInformationService(IPInterfaceProperties ipInterfaceProperties, IWindowsCmdManager cmdManager)
+    public WindowsHostInformationService(IPInterfaceProperties ipInterfaceProperties, IWindowsManager manager)
     {
         _ipInterfaceProperties = ipInterfaceProperties;
-        _cmdManager = cmdManager;
+        _manager = manager;
     }
 
     public HostInformation GetHostInformation()
@@ -60,11 +60,11 @@ public class WindowsHostInformationService : IHostInformationService
 
     public IEnumerable<string> GetTracertTable()
     {
-        return _cmdManager.GetTracertTable(GetGateway());
+        return _manager.GetTracertTable(GetGateway());
     }
 
     public IEnumerable<Host> GetArpTable()
     { 
-        return _cmdManager.GetArpTable();
+        return _manager.GetArpTable();
     }
 }

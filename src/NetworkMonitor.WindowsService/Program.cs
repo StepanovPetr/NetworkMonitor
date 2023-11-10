@@ -18,6 +18,7 @@ IHost host = Host.CreateDefaultBuilder(args)
      })
     .ConfigureServices(services =>
     {
+        // Получение настроек.
         var networkInterfaceSetting = configuration.GetSection("NetworkInterfaceSetting").Get<NetworkInterfaceSetting>();
         var httpClientSetting = configuration.GetSection("HttpClientSetting").Get<HttpClientSetting>();
 
@@ -26,7 +27,8 @@ IHost host = Host.CreateDefaultBuilder(args)
             .GetNetworkInterfaceByName(networkInterfaceSetting)
             .GetIPProperties();
 
-        services.AddSingleton<IWindowsCmdManager, WindowsCmdManager>();
+        // Внедрение зависимойстей для Windows Service.
+        services.AddSingleton<IWindowsManager, WindowsCmdManager>();
         services.AddSingleton<IPInterfaceProperties>(ipProperties);
         services.AddSingleton<IHostInformationService, WindowsHostInformationService>();
         services.AddSingleton<IHttpClient, WindowsHttpClientMock>();

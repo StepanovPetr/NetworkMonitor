@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 namespace NetworkMonitor.Common.Interfaces;
 
-/// <summary> Работа с утилитами командной строки Windows. </summary>
-public interface IWindowsCmdManager
+/// <summary> Работа с Windows. </summary>
+public interface IWindowsManager
 {
-    /// <summary> Получение arp таблицы через cmd. </summary>
+    /// <summary> Получение arp таблицы. </summary>
     /// <returns> arp таблица. </returns>
     IEnumerable<Host> GetArpTable();
 
-    /// <summary> Получение таблицы маршрутизации через cmd. </summary>
+    /// <summary> Получение таблицы маршрутизации. </summary>
     /// <param name="gateway"> IP адрес шлюза по-умолчанию. </param>
     /// <returns> таблицы прассеровки. </returns>
     IEnumerable<string> GetTracertTable(string gateway);

@@ -5,13 +5,17 @@ using NetworkMonitor.Common.Interfaces;
 
 namespace NetworkMonitor.Implementation.Windows;
 
-public class WindowsCmdManager : IWindowsCmdManager
+/// <summary> Работа с утилитами командной строки Windows. </summary>
+public class WindowsCmdManager : IWindowsManager
 {
     private List<string> _tracertTable;
     private List<Host> _tracertArp;
     private int _tracertInteration = 0;
     private int _arpInteration = 0;
 
+    /// <summary> Получение таблицы маршрутизации через cmd. </summary>
+    /// <param name="gateway"> IP адрес шлюза по-умолчанию. </param>
+    /// <returns> таблицы прассеровки. </returns>
     public IEnumerable<string> GetTracertTable(string gateway)
     {
         _tracertInteration = 0;
@@ -27,6 +31,8 @@ public class WindowsCmdManager : IWindowsCmdManager
         return _tracertTable;
     }
 
+    /// <summary> Получение arp таблицы через cmd. </summary>
+    /// <returns> arp таблица. </returns>
     public IEnumerable<Host> GetArpTable()
     {
         _arpInteration = 0;

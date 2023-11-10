@@ -18,7 +18,7 @@ namespace NetworkMonitor.Common.Interfaces
         /// <summary> Получение имени машины. </summary>
         string GetHostName();
 
-        /// <summary> Получение IP адреа машины. </summary>
+        /// <summary> Получение IP адреса машины. </summary>
         string GetPv4Address();
 
         /// <summary> Получение списка IP адресов DNS. </summary>

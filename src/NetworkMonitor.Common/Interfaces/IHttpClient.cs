@@ -9,3 +9,4 @@ public interface IHttpClient
     /// <param name="hostInformation"> Информация об узле сети. </param>
     void SendHostInformation(HostInformation hostInformation);
 }
+
