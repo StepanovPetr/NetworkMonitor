@@ -16,6 +16,7 @@ IHost host = Host.CreateDefaultBuilder(args)
      {
          config.ServiceName = "NetworkMonitor.WindowsService";
      })
+
     .ConfigureServices(services =>
     {
         // Получение настроек.
