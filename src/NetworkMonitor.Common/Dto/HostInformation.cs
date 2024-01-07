@@ -5,7 +5,7 @@ namespace NetworkMonitor.Common.Dto
 {
     /// <summary> Информация об узле сети. </summary>
     [Serializable]
-    public class HostInformation
+    public record HostInformation
     {
         /// <summary> IP адрес DHCP Сервера. </summary>
         public string Dhcp { get; set; }
