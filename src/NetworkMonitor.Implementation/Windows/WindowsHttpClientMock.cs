@@ -7,7 +7,7 @@ namespace NetworkMonitor.Implementation.Windows;
 /// <summary> Класс заглушка для IHttpClient. </summary>
 public class WindowsHttpClientMock : IHttpClient
 {
-    /// <summary> Сохранение Информации об узле сети в json файл. </summary>
+    /// <summary> Сохранение информации об узле сети в json файл. </summary>
     public void SendHostInformation(HostInformation hostInformation)
     {
         if (!Directory.Exists("mock"))
@@ -23,3 +23,4 @@ public class WindowsHttpClientMock : IHttpClient
         }
     }
 }
+

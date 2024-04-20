@@ -15,7 +15,7 @@ public class WindowsCmdManager : IWindowsManager
 
     /// <summary> Получение таблицы маршрутизации через cmd. </summary>
     /// <param name="gateway"> IP адрес шлюза по-умолчанию. </param>
-    /// <returns> таблицы прассеровки. </returns>
+    /// <returns> Таблицы маршрутизации. </returns>
     public IEnumerable<string> GetTracertTable(string gateway)
     {
         _tracertInteration = 0;
@@ -31,8 +31,8 @@ public class WindowsCmdManager : IWindowsManager
         return _tracertTable;
     }
 
-    /// <summary> Получение arp таблицы через cmd. </summary>
-    /// <returns> arp таблица. </returns>
+    /// <summary> Получение ARP таблицы через cmd. </summary>
+    /// <returns> ARP таблица. </returns>
     public IEnumerable<Host> GetArpTable()
     {
         _arpInteration = 0;

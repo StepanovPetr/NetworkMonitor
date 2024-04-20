@@ -6,12 +6,13 @@ namespace NetworkMonitor.Common.Interfaces;
 /// <summary> Работа с Windows. </summary>
 public interface IWindowsManager
 {
-    /// <summary> Получение arp таблицы. </summary>
-    /// <returns> arp таблица. </returns>
+    /// <summary> Получение ARP таблицы. </summary>
+    /// <returns> ARP таблица. </returns>
     IEnumerable<Host> GetArpTable();
 
     /// <summary> Получение таблицы маршрутизации. </summary>
     /// <param name="gateway"> IP адрес шлюза по-умолчанию. </param>
-    /// <returns> таблицы прассеровки. </returns>
+    /// <returns> Таблица маршрутизации. </returns>
     IEnumerable<string> GetTracertTable(string gateway);
 }
+
