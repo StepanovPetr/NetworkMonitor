@@ -19,7 +19,7 @@ namespace NetworkMonitor.Common.Dto
         /// <summary> IP адрес машины. </summary>
         public string IPv4Address { get; set; }
 
-        /// <summary> IP адресы DNS серверов. </summary>
+        /// <summary> IP адреса DNS серверов. </summary>
         public IEnumerable<string> DnsList { get; set; }
 
         /// <summary> ARP таблица. </summary>
