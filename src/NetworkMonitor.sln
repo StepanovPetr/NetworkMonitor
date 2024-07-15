@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetworkMonitor.Implementati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetworkMonitor.Tests", "NetworkMonitor.Tests\NetworkMonitor.Tests.csproj", "{83223B1A-6CFB-4B1D-91FB-54A42B26354B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkMonitor.WindowsService", "NetworkMonitor.WindowsService\NetworkMonitor.WindowsService.csproj", "{6F4A0007-446E-4F97-80AB-921BEC3D6C74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetworkMonitor.WindowsService", "NetworkMonitor.WindowsService\NetworkMonitor.WindowsService.csproj", "{6F4A0007-446E-4F97-80AB-921BEC3D6C74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkMonitor.Api", "NetworkMonitor.Api\NetworkMonitor.Api.csproj", "{16F3D70F-CA44-49B1-B3D9-F43F8D9B431C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{6F4A0007-446E-4F97-80AB-921BEC3D6C74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F4A0007-446E-4F97-80AB-921BEC3D6C74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F4A0007-446E-4F97-80AB-921BEC3D6C74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16F3D70F-CA44-49B1-B3D9-F43F8D9B431C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16F3D70F-CA44-49B1-B3D9-F43F8D9B431C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16F3D70F-CA44-49B1-B3D9-F43F8D9B431C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16F3D70F-CA44-49B1-B3D9-F43F8D9B431C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

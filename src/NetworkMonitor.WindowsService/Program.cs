@@ -32,7 +32,7 @@ IHost host = Host.CreateDefaultBuilder(args)
         services.AddSingleton<IWindowsManager, WindowsCmdManager>();
         services.AddSingleton<IPInterfaceProperties>(ipProperties);
         services.AddSingleton<IHostInformationService, WindowsHostInformationService>();
-        services.AddSingleton<IHttpClient, WindowsHttpClientMock>();
+        services.AddSingleton<IHttpClient, WindowsHttpClient>();
         services.AddSingleton<HttpClientSetting>(httpClientSetting);
 
         services.AddHostedService<WindowsWorker>();
