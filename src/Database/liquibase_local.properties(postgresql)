@@ -1,0 +1,5 @@
+driver: org.postgresql.Driver
+classpath: c:\\Program Files\\Liquibase\\lib\\
+url: jdbc:postgresql://localhost/example?currentSchema=example
+username: postgres
+password: postgres

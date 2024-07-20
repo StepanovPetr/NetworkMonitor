@@ -1,0 +1,5 @@
+driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+classpath: E:\\Soft\\liquibase\\lib
+url: jdbc:sqlserver://localhost:1433;database=example 
+username: postgres
+password: postgres

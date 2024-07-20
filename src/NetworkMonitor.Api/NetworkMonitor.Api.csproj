@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NetworkMonitor.Common\NetworkMonitor.Common.csproj" />
+    <ProjectReference Include="..\NetworkMonitor.Domain\NetworkMonitor.Domain.csproj" />
     <ProjectReference Include="..\NetworkMonitor.Implementation\NetworkMonitor.Implementation.csproj" />
   </ItemGroup>
 
