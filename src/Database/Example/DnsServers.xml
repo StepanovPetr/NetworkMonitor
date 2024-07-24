@@ -6,16 +6,13 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-	<changeSet id="HostInformation-Example" author="Omsk.Petr@gmail.com">
-        <comment>Insert to HostInformation table</comment>
-		<insert tableName="HostInformation">
+	<changeSet id="DnsServers-Example" author="Omsk.Petr@gmail.com">
+        <comment>Insert to DnsServers table</comment>
+		<insert tableName="DnsServers">
 			<column name="Id" value="1"/>
-			<column name="Dhcp" value="192.168.1.1"/>
-			<column name="Gateway" value="192.168.1.1"/>
-			<column name="Mac" value="E0-D5-5E-72-AF-B8"/>
-			<column name="Dns" value="192.168.1.1"/>
-			<column name="HostName" value="DruiD-Home-PC"/>
-			<column name="Ipv4Address" value="192.168.1.98"/>
+			<column name="HostName" value="ASUS ROUTER"/>
+			<column name="Ipv4Address" value="192.168.1.1"/>
+			<column name="Mac" value="60-45-cb-90-cf-2c"/>
 			<column name="Description" value="Пример для тестирования."/>
 		</insert>
     </changeSet>

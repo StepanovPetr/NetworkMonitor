@@ -6,45 +6,30 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-	<changeSet id="HostInformation" author="Omsk.Petr@gmail.com">
-        <comment>Create HostInformation table</comment>
-        <createTable tableName="HostInformation" remarks="HostInformation table">
+	<changeSet id="DnsServers" author="Omsk.Petr@gmail.com">
+        <comment>Create DNS Servers table</comment>
+        <createTable tableName="DnsServers" remarks="HostInformation table">
             			
 			<column name="Id" type="int"
-                    remarks="HostInformation id">
+                    remarks="Dns Server id">
                 <constraints nullable="false" primaryKey="true" />
 			</column>
-   		
-            <column name="Ipv4Address" type="nvarchar(30)"
-                    remarks="IP адрес машины.">
-                <constraints nullable="true" />
-			</column>
-
-            <column name="Mac" type="nvarchar(30)"
-                    remarks="MAC адрес машины.">
-                <constraints nullable="true" />
-			</column>
-
-            <column name="HostName" type="nvarchar(30)"
+   		           
+			<column name="HostName" type="nvarchar(30)"
                     remarks="Имя машины.">
                 <constraints nullable="true" />
 			</column>
-
-            <column name="Dhcp" type="nvarchar(30)"
-                    remarks="IP адрес DHCP Сервера.">
+			
+			 <column name="Ipv4Address" type="nvarchar(30)"
+                    remarks="IP адрес машины.">
                 <constraints nullable="true" />
 			</column>
 			
-			<column name="Gateway" type="nvarchar(30)"
-                    remarks="IP адрес шлюза по-умолчанию.">
+			 <column name="Mac" type="nvarchar(30)"
+                    remarks="MAC адрес машины.">
                 <constraints nullable="true" />
 			</column>
 			
-			<column name="Dns" type="nvarchar(30)"
-                    remarks="IP адрес DNS сервера.">
-                <constraints nullable="true" />
-			</column>	
-
 			<column name="Description" type="nvarchar(300)"
                     remarks="Описание.">
                 <constraints nullable="true" />

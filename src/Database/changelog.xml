@@ -6,6 +6,12 @@
       http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
 	<include file="Entity/HostInformation.xml" relativeToChangelogFile="true"/>
+	<include file="Entity/DnsServers.xml" relativeToChangelogFile="true"/>
+	<include file="Entity/DhcpServers.xml" relativeToChangelogFile="true"/>
+	<include file="Entity/GatewayServers.xml" relativeToChangelogFile="true"/>
 	
 	<include file="Example/HostInformation.xml" relativeToChangelogFile="true"/>
+	<include file="Example/DnsServers.xml" relativeToChangelogFile="true"/>
+	<include file="Example/DhcpServers.xml" relativeToChangelogFile="true"/>
+	<include file="Example/GatewayServers.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

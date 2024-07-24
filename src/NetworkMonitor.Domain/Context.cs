@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NetworkMonitor.Domain.Configurations;
 using NetworkMonitor.Domain.Entities;
 
 namespace NetworkMonitor.Domain
@@ -10,5 +11,13 @@ namespace NetworkMonitor.Domain
         }
 
         public DbSet<HostInformation> HostInformations { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new HostInformationConfiguration()); 
+            //ApplyConfigurationsFromAssembly(typeof(Context).Assembly);
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
