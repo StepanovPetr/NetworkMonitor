@@ -8,7 +8,7 @@ internal sealed class HostInformationConfiguration : IEntityTypeConfiguration<Ho
 {
     public void Configure(EntityTypeBuilder<HostInformation> builder)
     {
-        builder.ToTable("HostInformation");
+        builder.ToTable("hostInformation");
 
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Id)
@@ -32,5 +32,12 @@ internal sealed class HostInformationConfiguration : IEntityTypeConfiguration<Ho
 
         builder.Property(x => x.IPv4Address)
             .HasColumnName("ipv4address");
+
+        builder.Property(x => x.ValidationSetId)
+            .HasColumnName("validationSets_id");
+
+        builder.HasOne(pt => pt.ValidationSet)
+            .WithMany(t => t.HostInformations)
+            .HasForeignKey(e => e.ValidationSetId);
     }
 }

@@ -24,8 +24,11 @@ public class ValidationSetValidationRuleConfiguration : IEntityTypeConfiguration
             .HasColumnName("validationSet_id");
 
         builder.HasOne(pt => pt.ValidationSet)
-                .WithMany(t => t.ValidationSetValidationRules)
-                .HasForeignKey(e => e.ValidationSetsId);
+            .WithMany(t => t.ValidationSetValidationRules)
+            .HasForeignKey(e => e.ValidationSetsId);
 
+        builder.HasOne(pt => pt.ValidationRule)
+            .WithMany(t => t.ValidationSetValidationRules)
+            .HasForeignKey(e => e.ValidationRulesId);
     }
 }

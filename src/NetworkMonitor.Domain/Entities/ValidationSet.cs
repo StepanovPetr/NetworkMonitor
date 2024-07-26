@@ -12,4 +12,6 @@ public class ValidationSet
     public List<ValidationRule> ValidationRules { get; } = new List<ValidationRule>();
 
     public virtual ICollection<ValidationSetValidationRule>  ValidationSetValidationRules { get; set; }
+
+    public virtual ICollection<HostInformation> HostInformations { get; set; }
 }

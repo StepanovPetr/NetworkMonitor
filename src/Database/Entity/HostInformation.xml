@@ -8,7 +8,7 @@
 
 	<changeSet id="HostInformation" author="Omsk.Petr@gmail.com">
         <comment>Create HostInformation table</comment>
-        <createTable tableName="HostInformation" remarks="HostInformation table">
+        <createTable tableName="hostInformation" remarks="HostInformation table">
             			
 			<column name="id" type="int" autoIncrement="true"
                     remarks="HostInformation id">
@@ -48,7 +48,12 @@
 			<column name="description" type="nvarchar(300)"
                     remarks="Описание.">
                 <constraints nullable="true" />
-			</column>				
+			</column>
+
+			<column name="validationSets_id" type="int"
+                    remarks="validationsets id">
+				<constraints nullable="true"  foreignKeyName="fk_hostInformation_ValidationRules_Id" references="validationsets(Id)"  />
+			</column>
         </createTable>
     </changeSet>
 </databaseChangeLog>

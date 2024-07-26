@@ -29,6 +29,10 @@ namespace NetworkMonitor.Api.Controllers
 
             var sets = await Context.ValidationSets.ToListAsync();
 
+            var setsdsd = Context.ValidationSets
+                .Include(r => r.ValidationSetValidationRules)
+                .FirstOrDefault().ValidationSetValidationRules.Select(r => r.ValidationRule.ValidationRuleName).ToList();
+
             var validationSetValidationRuleConfigurations = await Context.
                 ValidationSetValidationRules
                 .Include(x => x.ValidationSet)

@@ -11,5 +11,5 @@ public class ValidationSetValidationRule
 
     public ValidationSet ValidationSet { get; set; }
 
-    //public ValidationRule ValidationRule { get; set; }
+    public ValidationRule ValidationRule { get; set; }
 }

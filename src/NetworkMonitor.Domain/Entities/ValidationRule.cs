@@ -10,4 +10,6 @@ public class ValidationRule
     public string Description { get; set; }
 
     public List<ValidationSet> ValidationSets { get; } = new List<ValidationSet>();
+
+    public virtual ICollection<ValidationSetValidationRule> ValidationSetValidationRules { get; set; }
 }
