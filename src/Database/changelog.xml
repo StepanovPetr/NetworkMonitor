@@ -6,12 +6,18 @@
       http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
 	<include file="Entity/HostInformation.xml" relativeToChangelogFile="true"/>
-	<include file="Entity/DnsServers.xml" relativeToChangelogFile="true"/>
-	<include file="Entity/DhcpServers.xml" relativeToChangelogFile="true"/>
-	<include file="Entity/GatewayServers.xml" relativeToChangelogFile="true"/>
+	<include file="Entity/dnsservers.xml" relativeToChangelogFile="true"/>
+	<include file="Entity/dhcpservers.xml" relativeToChangelogFile="true"/>
+	<include file="Entity/gatewayservers.xml" relativeToChangelogFile="true"/>
+	<include file="Entity/ValidationRules.xml" relativeToChangelogFile="true"/>
+	<include file="Entity/ValidationSets.xml" relativeToChangelogFile="true"/>
+	<include file="Entity/validationsetsvalidationrules.xml" relativeToChangelogFile="true"/>
 	
 	<include file="Example/HostInformation.xml" relativeToChangelogFile="true"/>
-	<include file="Example/DnsServers.xml" relativeToChangelogFile="true"/>
-	<include file="Example/DhcpServers.xml" relativeToChangelogFile="true"/>
-	<include file="Example/GatewayServers.xml" relativeToChangelogFile="true"/>
+	<include file="Example/dnsservers.xml" relativeToChangelogFile="true"/>
+	<include file="Example/dhcpservers.xml" relativeToChangelogFile="true"/>
+	<include file="Example/gatewayservers.xml" relativeToChangelogFile="true"/>
+	<include file="Example/ValidationRules.xml" relativeToChangelogFile="true"/>
+	<include file="Example/ValidationSets.xml" relativeToChangelogFile="true"/>
+	<include file="Example/validationsetsvalidationrules.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

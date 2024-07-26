@@ -6,29 +6,19 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-	<changeSet id="gatewayservers" author="Omsk.Petr@gmail.com">
-        <comment>Create Gateway Servers table</comment>
-        <createTable tableName="gatewayservers" remarks="HostInformation table">    			
-			<column name="id" type="int"
-                    remarks="Gateway Server id">
+	<changeSet id="ValidationRules" author="Omsk.Petr@gmail.com">
+        <comment>Create validationrules table</comment>
+        <createTable tableName="validationrules" remarks="HostInformation table">    			
+			<column name="id" type="int" autoIncrement="true"
+                    remarks="validationrules id">
                 <constraints nullable="false" primaryKey="true" />
 			</column>
    		           
-			<column name="hostname" type="nvarchar(30)"
-                    remarks="Имя машины.">
+			<column name="validationrulename" type="nvarchar(30)"
+                    remarks="Наименование правила валидации.">
                 <constraints nullable="true" />
 			</column>
-			
-			 <column name="ipv4address" type="nvarchar(30)"
-                    remarks="IP адрес машины.">
-                <constraints nullable="true" />
-			</column>
-			
-			 <column name="mac" type="nvarchar(30)"
-                    remarks="mac адрес машины.">
-                <constraints nullable="true" />
-			</column>
-			
+						
 			<column name="description" type="nvarchar(300)"
                     remarks="Описание.">
                 <constraints nullable="true" />

@@ -6,31 +6,31 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-	<changeSet id="DnsServers" author="Omsk.Petr@gmail.com">
+	<changeSet id="dnsservers" author="Omsk.Petr@gmail.com">
         <comment>Create DNS Servers table</comment>
-        <createTable tableName="DnsServers" remarks="HostInformation table">
+        <createTable tableName="dnsservers" remarks="HostInformation table">
             			
-			<column name="Id" type="int"
+			<column name="id" type="int"
                     remarks="Dns Server id">
                 <constraints nullable="false" primaryKey="true" />
 			</column>
    		           
-			<column name="HostName" type="nvarchar(30)"
+			<column name="hostname" type="nvarchar(30)"
                     remarks="Имя машины.">
                 <constraints nullable="true" />
 			</column>
 			
-			 <column name="Ipv4Address" type="nvarchar(30)"
+			 <column name="ipv4address" type="nvarchar(30)"
                     remarks="IP адрес машины.">
                 <constraints nullable="true" />
 			</column>
 			
-			 <column name="Mac" type="nvarchar(30)"
-                    remarks="MAC адрес машины.">
+			 <column name="mac" type="nvarchar(30)"
+                    remarks="mac адрес машины.">
                 <constraints nullable="true" />
 			</column>
 			
-			<column name="Description" type="nvarchar(300)"
+			<column name="description" type="nvarchar(300)"
                     remarks="Описание.">
                 <constraints nullable="true" />
 			</column>				

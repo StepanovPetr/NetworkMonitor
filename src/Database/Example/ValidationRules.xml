@@ -7,13 +7,23 @@
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
 	<changeSet id="dhcpservers-Example" author="Omsk.Petr@gmail.com">
-        <comment>Insert to dhcpservers table</comment>
-		<insert tableName="dhcpservers">
+        <comment>Insert to validationrules table</comment>
+		<insert tableName="validationrules">
 			<column name="id" value="1"/>
-			<column name="hostname" value="ASUS ROUTER"/>
-			<column name="ipv4address" value="192.168.1.1"/>
-			<column name="mac" value="60-45-cb-90-cf-2c"/>
-			<column name="description" value="Пример для тестирования."/>
+			<column name="validationrulename" value="compliancecheckdns"/>
+			<column name="description" value=""/>
+		</insert>
+		
+		<insert tableName="validationrules">
+			<column name="id" value="2"/>
+			<column name="validationrulename" value="compliancecheckdhcp"/>
+			<column name="description" value=""/>
+		</insert>
+		
+		<insert tableName="validationrules">
+			<column name="id" value="3"/>
+			<column name="validationrulename" value="compliancecheckgateway"/>
+			<column name="description" value=""/>
 		</insert>
     </changeSet>
 </databaseChangeLog>

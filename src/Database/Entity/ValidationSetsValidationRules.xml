@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+	<changeSet id="validationSetsvalidationRules" author="Omsk.Petr@gmail.com">
+        <comment>Create ValidationSetsValidationRules table</comment>
+        <createTable tableName="validationSetsvalidationRules" remarks="HostInformation table">    			
+			<column name="id" type="int" autoIncrement="true"
+                    remarks="ValidationSets id">
+                <constraints nullable="false" primaryKey="true" />
+			</column>
+			
+			<column name="validationSet_id" type="int" autoIncrement="true"
+                    remarks="ValidationSet id">
+                <constraints nullable="false" foreignKeyName="fk_ValidationSets_Id" references="ValidationSets(Id)" />
+			</column>
+   		           
+			<column name="validationRule_id" type="int" autoIncrement="true"
+                    remarks="ValidationRules id">
+				<constraints nullable="false"  foreignKeyName="fk_ValidationRules_Id" references="validationrules(Id)"  />
+			</column>	
+        </createTable>
+			
+		<addUniqueConstraint
+			columnNames="validationSet_id, validationRule_id"
+			constraintName="pk_validationSetsValidationRules"
+			tableName="validationSetsvalidationRules"
+			/>
+    </changeSet>
+</databaseChangeLog>

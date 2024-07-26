@@ -5,6 +5,7 @@ public class HostInformation
     /// <summary> Id. </summary>
     public int Id { get; set; }
 
+    /// <summary> MAC адрес машины. </summary>
     public string Mac { get; set; }
 
     /// <summary> Имя машины. </summary>

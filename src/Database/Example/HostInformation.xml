@@ -9,14 +9,14 @@
 	<changeSet id="HostInformation-Example" author="Omsk.Petr@gmail.com">
         <comment>Insert to HostInformation table</comment>
 		<insert tableName="HostInformation">
-			<column name="Id" value="1"/>
-			<column name="Dhcp" value="192.168.1.1"/>
-			<column name="Gateway" value="192.168.1.1"/>
-			<column name="Mac" value="E0-D5-5E-72-AF-B8"/>
-			<column name="Dns" value="192.168.1.1"/>
-			<column name="HostName" value="DruiD-Home-PC"/>
-			<column name="Ipv4Address" value="192.168.1.98"/>
-			<column name="Description" value="Пример для тестирования."/>
+			<column name="id" value="1"/>
+			<column name="dhcp" value="192.168.1.1"/>
+			<column name="gateway" value="192.168.1.1"/>
+			<column name="mac" value="E0-D5-5E-72-AF-B8"/>
+			<column name="dns" value="192.168.1.1"/>
+			<column name="hostname" value="DruiD-Home-PC"/>
+			<column name="ipv4address" value="192.168.1.98"/>
+			<column name="description" value="Пример для тестирования."/>
 		</insert>
     </changeSet>
 </databaseChangeLog>
