@@ -10,7 +10,7 @@ namespace NetworkMonitor.Domain
         {
         }
 
-        public DbSet<HostInformation> HostInformations { get; set; }
+        public DbSet<HostInformation> HostInformation { get; set; }
 
         public DbSet<ValidationSet> ValidationSets { get; set; }
 

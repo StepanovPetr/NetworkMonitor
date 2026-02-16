@@ -16,12 +16,12 @@ public class WindowsHttpClient : IHttpClient
     }
 
     /// <summary> Сохранение информации об узле сети в json файл. </summary>
-    public void SendHostInformation(HostInformation hostInformation)
+    public void SendHostInformation(HostInformationDto hostInformationDto)
     {
         using (var client = new HttpClient())
         {
             client.BaseAddress = new Uri(_httpClientSetting.IpAddress);
-            var response = client.PostAsJsonAsync("Validation", hostInformation).Result;
+            var response = client.PostAsJsonAsync("Validation", hostInformationDto).Result;
         }
     }
 }

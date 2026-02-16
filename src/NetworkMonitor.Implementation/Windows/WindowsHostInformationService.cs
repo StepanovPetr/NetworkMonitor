@@ -16,9 +16,9 @@ public class WindowsHostInformationService : IHostInformationService
         _manager = manager;
     }
 
-    public HostInformation GetHostInformation()
+    public HostInformationDto GetHostInformation()
     {
-        return new HostInformation
+        return new HostInformationDto
         {
             Dhcp = GetDhcp(),
             DnsList = GetDnsList(),

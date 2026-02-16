@@ -36,8 +36,6 @@ internal sealed class HostInformationConfiguration : IEntityTypeConfiguration<Ho
         builder.Property(x => x.ValidationSetId)
             .HasColumnName("validationSets_id");
 
-        builder.HasOne(pt => pt.ValidationSet)
-            .WithMany(t => t.HostInformations)
-            .HasForeignKey(e => e.ValidationSetId);
+        builder.HasOne(pt => pt.ValidationSet);
     }
 }

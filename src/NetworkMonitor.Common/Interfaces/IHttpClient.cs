@@ -6,7 +6,7 @@ namespace NetworkMonitor.Common.Interfaces;
 public interface IHttpClient
 {
     /// <summary> Отправка данных сети текущего узла на сервер. </summary>
-    /// <param name="hostInformation"> Информация об узле сети. </param>
-    void SendHostInformation(HostInformation hostInformation);
+    /// <param name="hostInformationDto"> Информация об узле сети. </param>
+    void SendHostInformation(HostInformationDto hostInformationDto);
 }
 

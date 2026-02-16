@@ -8,7 +8,7 @@ namespace NetworkMonitor.Implementation.Windows;
 public class WindowsHttpClientMock : IHttpClient
 {
     /// <summary> Сохранение информации об узле сети в json файл. </summary>
-    public void SendHostInformation(HostInformation hostInformation)
+    public void SendHostInformation(HostInformationDto hostInformationDto)
     {
         if (!Directory.Exists("mock"))
         {
@@ -19,7 +19,7 @@ public class WindowsHttpClientMock : IHttpClient
         using (var stream = File.CreateText(fileName))
         {
             var serializer = new JsonSerializer();
-            serializer.Serialize(stream, hostInformation);
+            serializer.Serialize(stream, hostInformationDto);
         }
     }
 }

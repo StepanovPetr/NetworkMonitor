@@ -7,7 +7,7 @@ namespace NetworkMonitor.Common.Interfaces
     public interface IHostInformationService
     {
         /// <summary> Получение информации об узле сети. </summary>
-        HostInformation GetHostInformation();
+        HostInformationDto GetHostInformation();
 
         /// <summary> Получение IP адреса DHCP Сервера. </summary>
         string GetDhcp();

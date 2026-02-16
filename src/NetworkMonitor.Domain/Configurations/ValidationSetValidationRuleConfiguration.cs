@@ -1,7 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using NetworkMonitor.Domain.Entities;
-using System.Reflection.Metadata;
 
 namespace NetworkMonitor.Domain.Configurations;
 
@@ -9,7 +8,7 @@ public class ValidationSetValidationRuleConfiguration : IEntityTypeConfiguration
 {
     public void Configure(EntityTypeBuilder<ValidationSetValidationRule> builder)
     {
-        builder.ToTable("validationSetsvalidationRules");
+        builder.ToTable("validationSetsvalidationRules", "hostinformation");
 
         builder
             .HasKey(t => t.Id);

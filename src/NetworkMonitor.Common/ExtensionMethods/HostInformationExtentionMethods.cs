@@ -5,27 +5,27 @@ namespace NetworkMonitor.Common.ExtensionMethods;
 
 public static class HostInformationExtensionMethods
 {
-    public static string Log(this HostInformation hostInformation)
+    public static string Log(this HostInformationDto hostInformationDto)
     {
-        var result = $"Gateway - {hostInformation.Gateway}{Environment.NewLine}";
-        result += $"HostName - {hostInformation.HostName}{Environment.NewLine}";
-        result += $"IPv4Address - {hostInformation.IPv4Address}{Environment.NewLine}";
-        result += $"DHCP - {hostInformation.Dhcp}{Environment.NewLine}";
+        var result = $"Gateway - {hostInformationDto.Gateway}{Environment.NewLine}";
+        result += $"HostName - {hostInformationDto.HostName}{Environment.NewLine}";
+        result += $"IPv4Address - {hostInformationDto.IPv4Address}{Environment.NewLine}";
+        result += $"DHCP - {hostInformationDto.Dhcp}{Environment.NewLine}";
         result += $"DNS сервера:{Environment.NewLine}";
 
-        foreach (var address in hostInformation.DnsList)
+        foreach (var address in hostInformationDto.DnsList)
         {
             result += $"{address}{Environment.NewLine}";
         }
 
         result += $"Таблица трассировки: {Environment.NewLine}";
-        foreach (var address in hostInformation.TracertTable)
+        foreach (var address in hostInformationDto.TracertTable)
         {
              result += $"{address}{Environment.NewLine}";
         }
 
         result += $"Таблица ARP: {Environment.NewLine}";
-        foreach (var address in hostInformation.ArpTable)
+        foreach (var address in hostInformationDto.ArpTable)
         {
             result += $"{address.IpAddress} - {address.MacAddress}{Environment.NewLine}";
         }

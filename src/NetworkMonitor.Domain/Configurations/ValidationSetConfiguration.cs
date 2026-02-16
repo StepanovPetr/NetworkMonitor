@@ -20,15 +20,5 @@ public class ValidationSetConfiguration : IEntityTypeConfiguration<ValidationSet
 
         builder.Property(x => x.Description)
             .HasColumnName("description");
-
-        //builder.HasMany(x => x.ValidationRules)
-        //    .WithMany(x => x.ValidationSets)
-        //    .UsingEntity("validationsetsvalidationrules",
-        //        j => j.HasOne(s => s.)
-        //            .WithMany()
-        //            .HasForeignKey(s => s.CourseId),
-        //        j => j.HasOne(c => c.Student)
-        //            .WithMany()
-        //            .HasForeignKey(c => c.StudentId)););
     }
 }

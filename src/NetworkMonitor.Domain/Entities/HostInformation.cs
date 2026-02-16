@@ -23,8 +23,9 @@ public class HostInformation
     /// <summary> IP адреса DNS серверов. </summary>
     public string Dns { get; set; }
 
-    /// <summary> Правила валидации для хоста. </summary>
-    public int ValidationSetId { get; set; }
+    /// <summary> Правила валидации для хоста Id. </summary>
+    public int? ValidationSetId { get; set; }
 
+    /// <summary> Правила валидации для хоста. </summary>
     public ValidationSet ValidationSet { get; set; }
 }

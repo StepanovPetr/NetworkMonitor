@@ -19,29 +19,13 @@ namespace NetworkMonitor.Api.Controllers
         }
 
         [HttpPost(Name = "Validation")]
-        public async Task<HostInformation> Post(HostInformation hostInformation )
+        public async Task<HostInformationDto> Post(HostInformationDto hostInformation )
         {
             _logger.LogInformation("Сообщение получено.");
 
-            var hostInformations = await Context.HostInformations.ToListAsync();
-
+            var hostInformations = await Context.HostInformation.ToListAsync();
             var rules = await Context.ValidationRules.ToListAsync();
-
             var sets = await Context.ValidationSets.ToListAsync();
-
-            var setsdsd = Context.ValidationSets
-                .Include(r => r.ValidationSetValidationRules)
-                .FirstOrDefault().ValidationSetValidationRules.Select(r => r.ValidationRule.ValidationRuleName).ToList();
-
-            var validationSetValidationRuleConfigurations = await Context.
-                ValidationSetValidationRules
-                .Include(x => x.ValidationSet)
-                .ToListAsync();
-
-            var host = new Domain.Entities.HostInformation();
-
-            Context.HostInformations.Add(host);
-            await Context.SaveChangesAsync();
 
             return hostInformation;
         }

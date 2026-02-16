@@ -20,10 +20,5 @@ public class ValidationRuleConfiguration : IEntityTypeConfiguration<ValidationRu
 
         builder.Property(x => x.Description)
             .HasColumnName("description");
-
-        builder.HasMany(x => x.ValidationSets)
-            .WithMany(x => x.ValidationRules)
-            .UsingEntity("validationsetsvalidationrules");
-
     }
 }
