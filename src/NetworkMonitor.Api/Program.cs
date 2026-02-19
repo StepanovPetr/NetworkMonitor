@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using NetworkMonitor.Api.Models.Examples.Validation;
 using NetworkMonitor.Domain;
+using Swashbuckle.AspNetCore.Filters;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +11,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.ExampleFilters();
+});
+builder.Services.AddSwaggerExamplesFromAssemblyOf<HostInformationDtoExample>();
 builder.Services.AddDbContext<Context>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("myDb")));
 

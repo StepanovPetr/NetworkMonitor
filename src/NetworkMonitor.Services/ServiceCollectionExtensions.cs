@@ -19,6 +19,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IHostInformationService, HostInformationService>();
         services.AddScoped<IValidationSetService, ValidationSetService>();
         services.AddScoped<IValidationRuleService, ValidationRuleService>();
+        services.AddScoped<IValidationSetValidationRuleService, ValidationSetValidationRuleService>();
         return services;
     }
 }
